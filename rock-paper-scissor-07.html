@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>rock paper scissor</title>
+  </head>
+  <body>
+    <p>Rock Paper Scissor</p>
+    <button onclick="
+    playgame('ROCK')
+    ">Rock</button>
+
+    <button onclick="
+    playgame('PAPER')
+    ">Paper</button>
+    
+    <button onclick="
+     playgame('SCISSOR')
+    ">Scissors</button>
+  </body>
+  <script>
+    function getRandomInt(max) 
+    {
+      result = '';
+      return Math.floor(Math.random() * max);
+    }
+    function pickComputerMove()
+    {
+      let comp= ' ';
+      let num = getRandomInt(3);
+      console.log(num);
+      let result ='';
+      if (num===0)
+      {
+        comp = 'ROCK';
+      }
+      else if(num===1)
+      {
+        comp = 'PAPER';
+      }
+      else
+      {
+        comp = 'SCISSOR';
+      }
+      return comp;
+    }
+    function playgame(playerMove)
+    {
+      let computerMove = ' ';
+      computerMove= pickComputerMove();
+      
+      if(playerMove === 'ROCK'){
+        if (computerMove === 'ROCK')
+        {
+          result= 'It is a Tie';
+        }
+        else if(computerMove === 'PAPER')
+        {
+          result= 'You lose';
+        }
+        else 
+        {
+          result= 'You win';
+        }
+
+        alert(`You picked ROCK. Computer picked ${computerMove}. ${result}`);
+      }
+      else if( playerMove === 'SCISSOR')
+      {
+        if (computerMove === 'ROCK')
+        {
+          result= 'You lose';
+        }
+        else if(computerMove === 'PAPER')
+        {
+          result= 'You win';
+        }
+        else 
+        {
+          result= 'It is a Tie';
+        }
+        alert(`You picked SCISSOR. Computer picked ${computerMove}. ${result}`);
+      }
+      else if( playerMove === 'PAPER' )
+      {
+        if (computerMove === 'ROCK')
+        {
+          result= 'You win';
+        }
+        else if(computerMove === 'PAPER')
+        {
+          result= 'It is a Tie';
+        }
+        else 
+        {
+          result= 'You lose';
+        }
+
+        alert(`You picked PAPER. Computer picked ${computerMove}. ${result}`);
+      }
+      else{
+        console.log('invalid choice')
+      }
+      alert(`You picked ROCK. Computer picked ${computerMove}. ${result}`);
+    }
+  </script>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>rock paper scissor</title>
+  </head>
+  <body>
+    <p>Rock Paper Scissor</p>
+    <button onclick="
+    let computerMove = '';
+    let num = getRandomInt(3);
+    console.log(num);
+    let result ='';
+    if (num===0)
+    {
+      computerMove= 'ROCK';
+    }
+    else if(num===1)
+    {
+      computerMove= 'PAPER';
+    }
+    else
+    {
+      computerMove= 'SCISSOR';
+    }
+    
+    if (computerMove === 'ROCK')
+    {
+      result= 'It is a Tie';
+    }
+    else if(computerMove === 'PAPER')
+    {
+      result= 'You lose';
+    }
+    else 
+    {
+      result= 'You win';
+    }
+
+    alert(`You picked ROCK. Computer picked ${computerMove}. ${result}`);
+    ">Rock</button>
+
+    <button onclick="
+    let computerMove = '';
+    let num = getRandomInt(3);
+    let result ='';
+    if (num===0)
+    {
+      computerMove= 'ROCK';
+    }
+    else if(num===1)
+    {
+      computerMove= 'PAPER';
+    }
+    else
+    {
+      computerMove= 'SCISSOR';
+    }
+    
+    if (computerMove === 'PAPER')
+    {
+      result= 'It is a Tie';
+    }
+    else if(computerMove === 'ROCK')
+    {
+      result= 'You Win';
+    }
+    else
+    {
+      result= 'You lose';
+    }
+
+    alert(`You picked PAPER. Computer picked ${computerMove}. ${result}`);
+    ">Paper</button>
+    
+    <button onclick="
+    let computerMove = '';
+    let num = getRandomInt(3);
+    let result ='';
+    if (num===0)
+    {
+      computerMove= 'ROCK';
+    }
+    else if(num===1)
+    {
+      computerMove= 'PAPER';
+    }
+    else 
+    {
+      computerMove= 'SCISSOR';
+    }
+    
+    if (computerMove === 'SCISSOR')
+    {
+      result= 'It is a Tie';
+    }
+    else if(computerMove === 'ROCK')
+    {
+      result= 'You lose';
+    }
+    else 
+    {
+      result= 'You win';
+    }
+
+    alert(`You picked scissor. Computer picked ${computerMove}. ${result}`);
+    ">Scissors</button>
+  </body>
+  <script>
+    function getRandomInt(max) 
+    {
+      result = '';
+      return Math.floor(Math.random() * max);
+    }
+  </script>
+</html>

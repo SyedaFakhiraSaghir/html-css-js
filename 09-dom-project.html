@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>DOM PROJECT</title>
+    <style>
+      .js-subscribe-button {
+        border: none;
+        color: white;
+        background-color: black;
+        padding-top: 10px;
+        padding-bottom:10px ;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+      
+    </style>
+  </head>
+  <body>
+    
+    <p>Youtube subscribe button</p>
+    <button onclick="subscribe();"
+    class = "js-subscribe-button">subscribe</button>
+
+    <p>Amazon Shipping calculator</p>
+    <input placeholder="cost of order" class = 'js-order' onkeydown="
+    if(event.key === 'Enter')
+    {calculate();}
+    ">
+
+
+<p>Amazon Shipping calculator</p>
+    <button onclick="calculate()">calculate</button>
+    <p class="js-cost-order"></p>
+
+    <script>
+      function calculate()
+      {
+        const Inputel = document.querySelector('.js-order');
+        let cost = Number(Inputel.value);
+        if(cost < 40)
+        {
+          cost= cost+10;
+        }
+        document.querySelector('.js-cost-order').innerHTML= `$${cost}`;
+      }
+
+function subscribe()
+{
+  const statusbutton = document.querySelector('.js-subscribe-button');
+    if(statusbutton.innerText === 'subscribe')
+    {
+      statusbutton.innerHTML = 'subscribed';
+      statusbutton.classList.add('is-subscribed');
+    }
+    else
+    {
+      statusbutton.innerHTML = 'subscribe';
+    }
+}
+  </script>
+  </body>
+</html>

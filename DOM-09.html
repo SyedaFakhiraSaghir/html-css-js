@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>DOM</title>
+  </head>
+  <body>
+    <button> hello </button>
+    <button class="js-button"> hello 2 </button>
+  </body>
+  <script>
+
+    /*doccument.body.innerHTML = 'HELL0';
+    document.title = 'GOOD JOB';*/
+    console.log(document.title);
+    document.title = 'GOOD JOB';
+    console.log(document.body);
+    console.log(typeof document.body);
+    console.log(document.body.innerHTML);
+    //document.body.innerHTML='<button> fakhira </button>';
+    console.log(document.querySelector('button').innerHTML);
+    const buttonel = document.querySelector('.js-button').innerHTML;
+    console.log(buttonel);
+  </script>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>Rock Paper Scissors  n</title>
+    <link rel="stylesheet" href="/Users/saghirhussain/Desktop/html css course/12-rock-paper-scissors.css">
+  </head>
+  <body>
+    <p class="js-title">Rock Paper Scissors</p>
+    <button onclick="playgame('ROCK')" class="move-button rockpic"><img src="/Users/saghirhussain/Downloads/rock-emoji.png" class ="move-icon"></button>
+    <button onclick="playgame('PAPER')" class="move-button paperpic"><img src="/Users/saghirhussain/Downloads/paper-emoji.png" class ="move-icon"></button>
+    <button onclick="playgame('SCISSORS')" class="move-button scissorpic"><img src="/Users/saghirhussain/Downloads/scissors-emoji.png" class ="move-icon"></button>
+    <p class="js-result"></p>
+    <p class="picture"></p>
+    <p class="js-score"></p>
+    <p class="js-display"></p>
+    <button onclick="resetScore()" class="js-reset">Reset Score</button>
+    <button onclick="autoPlay()" class="js-autoplay">Autoplay</button>
+
+    <script>
+
+
+      let score = JSON.parse(localStorage.getItem('score')) || { wins: 0, losses: 0, ties: 0 };
+      updatescore();
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      function playgame(playerMove) {
+        let computerMove = pickComputerMove();
+        let result = '';
+
+        if (playerMove === 'ROCK') {
+          if (computerMove === 'ROCK') {
+            result = 'It is a Tie';
+            score.ties++;
+          } else if (computerMove === 'PAPER') {
+            result = 'You lose';
+            score.losses++;
+          } else {
+            result = 'You win';
+            score.wins++;
+          }
+        } else if (playerMove === 'SCISSORS') {
+          if (computerMove === 'ROCK') {
+            result = 'You lose';
+            score.losses++;
+          } else if (computerMove === 'PAPER') {
+            result = 'You win';
+            score.wins++;
+          } else {
+            result = 'It is a Tie';
+            score.ties++;
+          }
+        } else if (playerMove === 'PAPER') {
+          if (computerMove === 'ROCK') {
+            result = 'You win';
+            score.wins++;
+          } else if (computerMove === 'PAPER') {
+            result = 'It is a Tie';
+            score.ties++;
+          } else {
+            result = 'You lose';
+            score.losses++;
+          }
+        } else {
+          console.log('invalid choice');
+        }
+
+        localStorage.setItem('score', JSON.stringify(score));
+        updatescore();
+        document.querySelector('.js-result').innerHTML = result;
+        document.querySelector('.picture').innerHTML = `You <img src="/Users/saghirhussain/Downloads/${playerMove}-emoji.png" class="move-icon">
+          <img src="/Users/saghirhussain/Downloads/${computerMove}-emoji.png" class="move-icon">
+          Computer`;
+      }
+
+      function updatescore() {
+        document.querySelector('.js-score').innerHTML = `Wins: ${score.wins}  Losses: ${score.losses}  Ties: ${score.ties}`;
+      }
+
+      function pickComputerMove() {
+        let num = getRandomInt(3);
+        if (num === 0) {
+          return 'ROCK';
+        } else if (num === 1) {
+          return 'PAPER';
+        } else {
+          return 'SCISSORS';
+        }
+      }
+
+      function resetScore() {
+        score = { wins: 0, losses: 0, ties: 0 };
+        localStorage.removeItem('score');
+        updatescore();
+      }
+      let isautoPlaying=false;
+      let intervalId;
+      function autoPlay()
+      {
+        if(!isautoPlaying){
+          intervalId =setInterval(function(){
+            let compMove1 = pickComputerMove();
+            playgame(compMove1);
+            isautoPlaying=true;
+          }, 2000);
+        }
+        else{
+          clearInterval(intervalId);
+          isAutoPlaying = false;
+        }
+
+      }
+    </script>
+  </body>
+</html>

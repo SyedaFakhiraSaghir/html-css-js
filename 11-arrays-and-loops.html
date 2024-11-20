@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>Arrays and Loops</title>
+    
+  </head>
+  <body>
+    <p>Todo List Practice 1</p>
+    <input placeholder="Todo name" class="p1" onkeydown=" if(event.key === 'Enter'){add();}">
+    <button>Add</button>
+    <p>Todo List Practice 2</p>
+    <input placeholder="Todo name" class="p1" onkeydown=" if(event.key === 'Enter'){add();}">
+    <button>Add</button>
+    <p>Todo List</p>
+    <input placeholder="Todo name" class="p2" onkeydown=" if(event.key === 'Enter'){add();}">
+    <input placeholder="dd/mm/yyyy" class="p2" onkeydown=" if(event.key === 'Enter'){add();}">
+    
+    <button>Add</button>
+    <script>
+      const myarray = [10,20,30];
+      console.log(myarray);
+
+      [1, 'hello', true, {name : 'socks'}, [1,2]];
+      console.log(typeof [1,2]);
+      console.log(myarray.length);
+
+      myarray.push(100);
+      console.log(myarray);
+
+      myarray.splice(0,1);
+      console.log(myarray);
+
+      let i=1;
+      while(i<=5){
+        console.log(i);
+        i++;
+      }
+
+      for(let i=1;i<=5;i++)
+      {
+        
+      }
+    </script>
+  </body>
+</html>
